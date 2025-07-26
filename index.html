@@ -4,7 +4,77 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tabuada 2</title>
- 
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ece9e6, #ffffff);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      margin-top: 40px;
+      width: 90%;
+      max-width: 800px;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      width: 150px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input[type="number"]:focus {
+      border-color: #4CAF50;
+    }
+
+    input[type="button"] {
+      padding: 10px 20px;
+      margin-left: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    input[type="button"]:hover {
+      background-color: #45a049;
+    }
+
+    .quadro {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .quadro h1 {
+      font-size: 22px;
+      color: #333;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+
+    .quadro div {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
   <section class="container">
@@ -36,7 +106,33 @@
     </div>  
   </section>
 
-  <script src="script.js"></script>
-  
+  <script>
+    function clicar() {
+      let input = document.getElementById('txtab')
+      let n = Number(input.value)
+
+      let soma = document.getElementById('soma')
+      let subtracao = document.getElementById('subtracao')
+      let multiplicacao = document.getElementById('multiplicacao')
+      let divisao = document.getElementById('divisao')
+
+      if (input.value === '') {
+        window.alert('❗ Por favor, digite um número!')
+        return
+      }
+
+      soma.innerHTML = ''
+      subtracao.innerHTML = ''
+      multiplicacao.innerHTML = ''
+      divisao.innerHTML = ''
+
+      for (let c = 1; c <= 10; c++) {
+        soma.innerHTML += `${n} + ${c} = ${n + c}<br>`
+        subtracao.innerHTML += `${n} - ${c} = ${n - c}<br>`
+        multiplicacao.innerHTML += `${n} * ${c} = ${n * c}<br>`
+        divisao.innerHTML += `${n} / ${c} = ${(n / c).toFixed(2)}<br>`
+      }
+    }
+  </script>
 </body>
 </html>
